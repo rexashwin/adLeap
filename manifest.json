@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+
+    "name": "adLeap",
+    "description": "This extension helps you by skipping youtube ads automatically and get rid of ad banners.",
+    "version": "0.0.1",
+
+    "icons": {
+        "128": "images/icon128.png",
+        "48": "images/icon48.png",
+        "16": "images/icon16.png"
+    },
+
+    "page_action": {
+        "default_icon": "images/icon128.png",
+        "default_popup": "popup.html",
+        "default_title": "adLeap"
+    },
+
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+
+    "content_scripts": [{
+        "matches": [
+            "https://www.youtube.com/*"
+        ],
+        "js": [
+            "jquery-3.1.0.min.js",
+            "content.js"
+        ]
+    }],
+
+    "permissions": [
+        "tabs",
+        "storage"
+    ]
+}
